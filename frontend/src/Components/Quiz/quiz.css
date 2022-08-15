@@ -1,0 +1,68 @@
+.register{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.register h1{
+    font-size: 2.3em;;
+}
+
+.register form{
+    background-color: #008F8C;
+    display: flex;
+    flex-direction: column;
+    width: 29em;
+    padding:2%;
+    border: solid 2px #023535;
+    border-radius: 10px;
+    margin: 1%;
+}
+
+.register label{
+    background-color: #008F8C;
+    font-size: 1.5em ;
+}
+
+.register button{
+    margin-top: 5%;
+    font-size: 1.5em ;
+    transition: .3s;
+    background-color: #FACFCE;
+    border-radius: 10px;
+}
+
+.register button:hover{
+  cursor: pointer;
+  background-color:#023535 ;
+  color: #FACFCE;
+}
+
+.register .radio{
+    display: flex;
+    justify-content: space-around;
+    background-color: #008F8C;
+}
+
+.register .option{
+    background-color: #008F8C;
+
+}
+
+.register .radio input{
+    cursor: pointer;
+    accent-color:#023535;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
