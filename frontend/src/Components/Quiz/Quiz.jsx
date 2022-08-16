@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react'
 import './quiz.css'
 import api from '../../utils/api'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 export default function Quiz() {
 
     const [questions, setQuestions] = useState([])
     const [count, setCount] = useState(0)
-    const [score,setScore] = useState(0)
-    const [answer,setAnswer] = useState(0)
-
+    const [score, setScore] = useState(0)
+    const [answer, setAnswer] = useState(0)
+    const navigate = useNavigate()
 
     useEffect(() => {
         api.get('/questions/ten').then((response) => {
@@ -17,28 +17,43 @@ export default function Quiz() {
         })
     }, [])
 
-    function handleSubmit(e) {
-        e.preventDefault()
-        CheckAnswer()
-        setCount(count +1)
-    }
-
-    function CheckAnswer(){
-        if(answer == questions[count].correct_answer){
-            setScore(score +1)
+    function CheckAnswer() {
+        if (answer == questions[count].correct_answer) {
+            setScore(state => state + 1)
+            console.log('resposta certa')
+            return score
+        } else {
+            console.log('resposta errada')
         }
     }
 
 
+
+    function handleSubmit(e) {
+        e.preventDefault()
+        CheckAnswer()
+        
+        if (count < 9) {
+            setCount(count + 1)
+        } else {
+            console.log('tem q dar 10 ', score)
+        }
+
+    }
+
+
+
     return (
-        <>
+        <div className='quiz'>
             <Link to='/'>Voltar</Link>
 
-            <div className="register">
+            <div className="question">
 
-                {questions.length > 0 &&
-
+                {questions.length === 10 &&
+                    <>
+                        <h1>Responda ao quiz</h1>
                         <form onSubmit={handleSubmit}>
+                            <h2>Pergunta {count + 1}</h2>
                             <label>{questions[count].title}</label>
 
                             <label>1- {questions[count].first_answer}</label>
@@ -48,7 +63,8 @@ export default function Quiz() {
                             <label>3- {questions[count].third_answer}</label>
 
                             <label>4- {questions[count].forth_answer}</label>
-                            <label>resp- {questions[count].correct_answer}</label>
+
+                            <label>rest- {questions[count].correct_answer}</label>
 
                             <label>Qual resposta é a correta?</label>
 
@@ -75,23 +91,23 @@ export default function Quiz() {
                                 </div>
                             </div>
 
-                            <button type='submit'>Cadastrar </button>
+                            <button type='submit'>Responder </button>
                         </form>
 
-                    }
+                    </>
+
+                }
                 {questions.length === 0 && (
-                    <h3>Não há questões cadastradas</h3>
+                    <h3>Não há 10 questões cadastradas</h3>
 
                 )}
 
-                
+                <Link to='/result'>Ver resultado</Link>
+
+                <h1>pontos:{score}</h1>
             </div>
-            <h1>Pergunta {count}</h1>
-            <h1>Resultados corretos: {score}</h1>
-            <h1>Resposta selecionada {answer}</h1>
-                  
-        </>
-        
+        </div>
+
     )
 }
 

@@ -1,14 +1,25 @@
-.register{
+.quiz a{
+    font-size: 1.9em;
+    margin-top: 1%;
+    margin-left: 2%;
+    text-decoration: none;
+    color: black;
+}
+
+.question{
+    margin-top: 3%;
     display: flex;
-    justify-content: flex-start;
     flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
 }
 
-.register h1{
-    font-size: 2.3em;;
+.question h2{
+  background-color:#008F8C ;
 }
 
-.register form{
+.question form{
+    
     background-color: #008F8C;
     display: flex;
     flex-direction: column;
@@ -16,15 +27,15 @@
     padding:2%;
     border: solid 2px #023535;
     border-radius: 10px;
-    margin: 1%;
+    
 }
 
-.register label{
+.question label{
     background-color: #008F8C;
     font-size: 1.5em ;
 }
 
-.register button{
+.question button{
     margin-top: 5%;
     font-size: 1.5em ;
     transition: .3s;
@@ -32,26 +43,27 @@
     border-radius: 10px;
 }
 
-.register button:hover{
+.question button:hover{
   cursor: pointer;
   background-color:#023535 ;
   color: #FACFCE;
 }
 
-.register .radio{
+.question .radio{
     display: flex;
     justify-content: space-around;
     background-color: #008F8C;
 }
 
-.register .option{
+.question .option{
     background-color: #008F8C;
 
 }
 
-.register .radio input{
+.question .radio input{
     cursor: pointer;
     accent-color:#023535;
+    transform: scale(1.3);
     
 }
 

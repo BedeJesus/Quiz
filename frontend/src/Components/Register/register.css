@@ -33,6 +33,20 @@
     font-size: 1.5em ;
 }
 
+.register input[type=text]{
+    background-color: transparent;
+
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: solid 2px #023535;
+}
+
+::placeholder{
+    color: #023535;
+    opacity: 1;
+}
+
 .register button{
     margin-top: 5%;
     font-size: 1.5em ;
@@ -61,10 +75,13 @@
 .register .radio input{
     cursor: pointer;
     accent-color:#023535;
-    
+    transform: scale(1.3); 
 }
 
 
+*:focus {
+    outline: none;
+}
 
 
 
