@@ -20,27 +20,35 @@ export default function Quiz() {
     function CheckAnswer() {
         if (answer == questions[count].correct_answer) {
             setScore(state => state + 1)
-            console.log('resposta certa')
-            return score
+            console.log(score)
+
+
         } else {
             console.log('resposta errada')
         }
     }
 
-
-
     function handleSubmit(e) {
         e.preventDefault()
+
         CheckAnswer()
-        
+
         if (count < 9) {
-            setCount(count + 1)
+            setCount(state => state + 1)
         } else {
+            setCount(state => state + 1)
             console.log('tem q dar 10 ', score)
+
+            // navigate('/quiz/result',
+            //     {
+            //         state: {
+            //             points: { score }
+            //         }
+            //     })
+
         }
 
     }
-
 
 
     return (
@@ -49,11 +57,15 @@ export default function Quiz() {
 
             <div className="question">
 
-                {questions.length === 10 &&
+                {questions.length === 10 && count <=9  &&
+                    
+
                     <>
+
                         <h1>Responda ao quiz</h1>
                         <form onSubmit={handleSubmit}>
                             <h2>Pergunta {count + 1}</h2>
+                            <h2>{count}</h2>
                             <label>{questions[count].title}</label>
 
                             <label>1- {questions[count].first_answer}</label>
@@ -94,16 +106,26 @@ export default function Quiz() {
                             <button type='submit'>Responder </button>
                         </form>
 
+
+
                     </>
 
                 }
+
+
+
+
                 {questions.length === 0 && (
                     <h3>Não há 10 questões cadastradas</h3>
 
                 )}
 
-                <Link to='/result'>Ver resultado</Link>
+                { count === 10 &&(
+                     <h3>Parabéns! sua pontuação é {score}</h3>
 
+                )
+
+                }
                 <h1>pontos:{score}</h1>
             </div>
         </div>
