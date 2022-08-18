@@ -1,12 +1,12 @@
-.register{
-    height: 90vh;
+.register {
+    height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.all a{
+.all a {
     font-size: 1.9em;
     margin-top: 1%;
     margin-left: 2%;
@@ -14,81 +14,70 @@
     color: black;
 }
 
-.register h1{
-    font-size: 2.3em;;
+.register h1 {
+    font-size: 2.3em;
+    ;
 }
 
-.register form{
-    background-color: #008F8C;
+.register form {
+    background-color: #03a8a5;
     display: flex;
     flex-direction: column;
     width: 29em;
-    padding:2%;
+    padding: 2%;
     border: solid 2px #023535;
     border-radius: 10px;
 }
 
-.register label{
-    background-color: #008F8C;
-    font-size: 1.5em ;
+.register label {
+    background-color: #03a8a5;
+    font-size: 1.5em;
 }
 
-.register input[type=text]{
+.register input[type=text] {
     background-color: transparent;
-
     border-top: none;
     border-left: none;
     border-right: none;
     border-bottom: solid 2px #023535;
 }
 
-::placeholder{
+::placeholder {
     color: #023535;
     opacity: 1;
 }
 
-.register button{
+.register button {
     margin-top: 5%;
-    font-size: 1.5em ;
+    font-size: 1.5em;
     transition: .3s;
     background-color: #FACFCE;
     border-radius: 10px;
 }
 
-.register button:hover{
-  cursor: pointer;
-  background-color:#023535 ;
-  color: #FACFCE;
+.register button:hover {
+    cursor: pointer;
+    background-color: #023535;
+    color: #FACFCE;
 }
 
-.register .radio{
+.register .radio {
     display: flex;
     justify-content: space-around;
-    background-color: #008F8C;
+    background-color: #03a8a5;
 }
 
-.register .option{
-    background-color: #008F8C;
-
+.register .option {
+    background-color: #03a8a5;
 }
 
-.register .radio input{
+.register .radio input {
     cursor: pointer;
-    accent-color:#023535;
-    transform: scale(1.3); 
+    accent-color: #023535;
+    transform: scale(1.3);
 }
 
 
 *:focus {
     outline: none;
 }
-
-
-
-
-
-
-
-
-
-

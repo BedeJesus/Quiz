@@ -1,18 +1,18 @@
 import { useState } from 'react'
-import { Link,useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import './register.css'
 import api from '../../utils/api'
-
+import useFlashMessage from '../../hooks/useFlashMessage'
 
 export default function Register() {
 
     const [question, setQuestion] = useState({})
-    
+    const { setFlashMessage } = useFlashMessage()
+    let msgType = 'success'
 
     function handleOnChange(e) {
         setQuestion({ ...question, [e.target.name]: e.target.value })
     }
-
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -20,21 +20,21 @@ export default function Register() {
         console.log(question)
     }
 
-
-
-    //register question
     const navigate = useNavigate()
     const formData = new FormData()
 
     async function registerQuestion(question) {
 
-        const data = await api.post('questions/create' ,question)
+        const data = await api.post('questions/create', question)
             .then((response) => {
                 return response.data
             })
             .catch((err) => {
+                msgType = 'error'
                 return err.response.data
             })
+
+        setFlashMessage(data.message, msgType)
     }
 
 
@@ -47,19 +47,19 @@ export default function Register() {
 
                 <form onSubmit={handleSubmit}>
                     <label>Questão:</label>
-                    <input type="text" placeholder="Digite sua questão" name ='title' onChange={handleOnChange} />
+                    <input type="text" placeholder="Digite sua questão" name='title' onChange={handleOnChange} />
 
                     <label>Primeira resposta:</label>
-                    <input type="text" placeholder="Digite a primeira resposta" name ='first_answer' onChange={handleOnChange} />
+                    <input type="text" placeholder="Digite a primeira resposta" name='first_answer' onChange={handleOnChange} />
 
                     <label>Segunda resposta:</label>
-                    <input type="text" placeholder="Digite a segunda resposta" name ='second_answer' onChange={handleOnChange} />
+                    <input type="text" placeholder="Digite a segunda resposta" name='second_answer' onChange={handleOnChange} />
 
                     <label>Terceira resposta:</label>
-                    <input type="text" placeholder="Digite a terceira resposta" name ='third_answer' onChange={handleOnChange} />
+                    <input type="text" placeholder="Digite a terceira resposta" name='third_answer' onChange={handleOnChange} />
 
                     <label>Quarta resposta:</label>
-                    <input type="text" placeholder="Digite a quarta resposta" name ='forth_answer' onChange={handleOnChange} />
+                    <input type="text" placeholder="Digite a quarta resposta" name='forth_answer' onChange={handleOnChange} />
 
                     <label>Qual é a resposta correta?</label>
 
@@ -93,16 +93,6 @@ export default function Register() {
         </div>
     )
 }
-
-
-
-
-
-
-
-
-
-
 
 
 

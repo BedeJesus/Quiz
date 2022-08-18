@@ -15,12 +15,11 @@
 }
 
 .question h2{
-  background-color:#008F8C ;
+  background-color:#03a8a5 ;
 }
 
 .question form{
-    
-    background-color: #008F8C;
+    background-color: #03a8a5;
     display: flex;
     flex-direction: column;
     width: 29em;
@@ -31,7 +30,7 @@
 }
 
 .question label{
-    background-color: #008F8C;
+    background-color: #03a8a5;
     font-size: 1.5em ;
 }
 
@@ -52,12 +51,11 @@
 .question .radio{
     display: flex;
     justify-content: space-around;
-    background-color: #008F8C;
+    background-color: #03a8a5;
 }
 
 .question .option{
-    background-color: #008F8C;
-
+    background-color: #03a8a5;
 }
 
 .question .radio input{
@@ -66,6 +64,53 @@
     transform: scale(1.3);
     
 }
+
+.result{
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+.result a{
+    
+    text-decoration: none;
+    color: #023535;
+    padding-right: 10%;
+    padding-left: 10%;
+    border: solid 2px black;
+    text-align: center;
+    border-radius: 10px;
+    transition: .3s;
+}
+
+.result a:hover{
+    background-color: #023535;
+    color:#FACFCE ;
+
+}
+
+
+.result h2{
+    background-color: transparent;
+}
+
+.no_questions{
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+.no_questions h2{
+    background-color: transparent;
+}
+
+
 
 
 

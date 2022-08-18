@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from 'react-router-dom'
 import './home.css'
+
 export default function Home() {
     return (
         <div className="home">
@@ -11,8 +12,6 @@ export default function Home() {
                 <Link to='/quiz'>Iniciar Quiz</Link>
                 <Link to='/register'>Cadastrar Questão</Link>
             </div>
-
-
 
         </div>
     )

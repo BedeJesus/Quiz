@@ -17,37 +17,31 @@ export default function Quiz() {
         })
     }, [])
 
-    function CheckAnswer() {
-        if (answer == questions[count].correct_answer) {
-            setScore(state => state + 1)
-            console.log(score)
 
-
-        } else {
-            console.log('resposta errada')
-        }
-    }
 
     function handleSubmit(e) {
         e.preventDefault()
 
-        CheckAnswer()
-
-        if (count < 9) {
-            setCount(state => state + 1)
-        } else {
-            setCount(state => state + 1)
-            console.log('tem q dar 10 ', score)
-
-            // navigate('/quiz/result',
-            //     {
-            //         state: {
-            //             points: { score }
-            //         }
-            //     })
-
+        if (answer == questions[count].correct_answer) {
+            setScore(state => state + 1)
         }
 
+        setCount(state => state + 1)
+    }
+
+
+    function Message() {
+        if (score <= 2) {
+            return 'Vamos fingir que não aconteceu...'
+        } else if (score <= 4) {
+            return 'Da pra melhorar isso aí!'
+        } else if (score <= 6) {
+            return 'Ok né ta na média'
+        } else if (score <= 8) {
+            return 'Mandou bem!'
+        } else if (score > 8) {
+            return 'Parabéns nerdão!'
+        }
     }
 
 
@@ -57,15 +51,13 @@ export default function Quiz() {
 
             <div className="question">
 
-                {questions.length === 10 && count <=9  &&
-                    
+                {questions.length === 10 && count <= 9 &&
 
                     <>
 
                         <h1>Responda ao quiz</h1>
                         <form onSubmit={handleSubmit}>
                             <h2>Pergunta {count + 1}</h2>
-                            <h2>{count}</h2>
                             <label>{questions[count].title}</label>
 
                             <label>1- {questions[count].first_answer}</label>
@@ -75,8 +67,6 @@ export default function Quiz() {
                             <label>3- {questions[count].third_answer}</label>
 
                             <label>4- {questions[count].forth_answer}</label>
-
-                            <label>rest- {questions[count].correct_answer}</label>
 
                             <label>Qual resposta é a correta?</label>
 
@@ -105,45 +95,35 @@ export default function Quiz() {
 
                             <button type='submit'>Responder </button>
                         </form>
-
-
-
                     </>
 
                 }
 
-
-
-
-                {questions.length === 0 && (
-                    <h3>Não há 10 questões cadastradas</h3>
+                {questions.length <10 && (
+                    <div className='no_questions'>
+                        <h1>Não há questões cadastradas!</h1>
+                        <h2>Cadastre pelo menos 10 questões para fazer o quiz</h2>
+                    </div>
 
                 )}
 
-                { count === 10 &&(
-                     <h3>Parabéns! sua pontuação é {score}</h3>
+                {count === 10 && (
+                    <div className="result">
+                        <h1>O seu resultado foi..</h1>
 
+                        <h1>{score} pontos!</h1>
+                        <h2>{Message()}</h2>
+
+                        <Link to='/'>Voltar ao Menu</Link>
+                    </div>
                 )
 
                 }
-                <h1>pontos:{score}</h1>
+
             </div>
         </div>
 
     )
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
