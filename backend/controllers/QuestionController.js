@@ -69,7 +69,7 @@ module.exports = class ItemController{
         })
     }
 
-    //get all questions
+    //get ten questions
 
     static async getTen(req,res){
         const questions = await Question.aggregate([{$sample:{size:10}}])

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import './quiz.css'
 import api from '../../utils/api'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link} from 'react-router-dom'
 
 export default function Quiz() {
 
@@ -9,15 +9,12 @@ export default function Quiz() {
     const [count, setCount] = useState(0)
     const [score, setScore] = useState(0)
     const [answer, setAnswer] = useState(0)
-    const navigate = useNavigate()
 
     useEffect(() => {
         api.get('/questions/ten').then((response) => {
             setQuestions(response.data.questions)
         })
     }, [])
-
-
 
     function handleSubmit(e) {
         e.preventDefault()

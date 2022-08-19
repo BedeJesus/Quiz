@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import './register.css'
 import api from '../../utils/api'
 import useFlashMessage from '../../hooks/useFlashMessage'
@@ -19,9 +19,6 @@ export default function Register() {
         registerQuestion(question)
         console.log(question)
     }
-
-    const navigate = useNavigate()
-    const formData = new FormData()
 
     async function registerQuestion(question) {
 
