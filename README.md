@@ -2,7 +2,7 @@
 👨‍💻 Quiz sobre conhecimentos gerais.<br>
 🧑🏽‍🦰 Para jogar basta cadastrar 10 questões e iniciar o jogo.<br>
 🪄 Ao acessar o Quiz ele irá pegar 10 questões aleatórias para mostrar ao jogador.<br>
-🔚 Ao completar as perguntas é mostrado a quantidade de pontos do jogador.<br>
+🏆 Ao completar as perguntas é mostrado a quantidade de pontos do jogador.<br>
 🤏🏽 Site totalmente responsivo.
 
 <h2>Linguagens utilizadas:</h2>
